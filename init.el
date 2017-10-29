@@ -117,7 +117,6 @@
 ;; Lets start with a smattering of sanity
 (require 'sane-defaults)
 
-
 ;; guide-key
 (require 'guide-key)
 (setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x v" "C-x 8" "C-x +"))
@@ -136,7 +135,8 @@
 (require 'setup-perspective)
 (require 'setup-ffip)
 (require 'setup-html-mode)
-(beginend-global-mode)
+(unless (version< emacs-version "24.4")
+  (beginend-global-mode))
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
