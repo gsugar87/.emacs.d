@@ -1,0 +1,1 @@
+(define-package "clojure-mode-extra-font-locking" "20170303.2310" "Extra font-locking for Clojure mode" '((clojure-mode "3.0")) :commit "05b6f053eeb56cb8301361bb84f9fe1371a53818" :url "http://github.com/clojure-emacs/clojure-mode" :keywords '("languages" "lisp"))
