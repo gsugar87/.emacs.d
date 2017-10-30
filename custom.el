@@ -12,5 +12,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "color-233" :foreground "color-251" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "defaul;t" :family "default"))))
+ '(font-lock-comment-face ((t (:foreground "color-245"))))
+ '(font-lock-keyword-face ((t (:foreground "color-72"))))
  '(js2-error-face ((t nil)) t)
- '(js2-warning-face ((t nil)) t))
+ '(js2-warning-face ((t nil)) t)
+ '(minibuffer-prompt ((t (:foreground "color-41"))))
+ '(persp-selected-face ((t (:foreground "color-38" :weight bold)))))

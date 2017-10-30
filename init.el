@@ -266,18 +266,19 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
-   ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
- '(custom-enabled-themes nil))
+;   ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "white"])
+   ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"]))
+; '(custom-enabled-themes nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "color-233" :foreground "color-251" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "defaul\
-t" :family "default"))))
+;t" :family "default"))))
  '(font-lock-comment-face ((t (:foreground "color-245"))))
  '(font-lock-keyword-face ((t (:foreground "color-72"))))
- '(link ((t (:foreground "color-39" :underline t))))
+ ;'(link ((t (:foreground "color-39" :underline t))))
  '(minibuffer-prompt ((t (:foreground "color-41")))))
 
 (setq auto-mode-alist
