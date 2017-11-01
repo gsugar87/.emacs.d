@@ -65,29 +65,26 @@
 ;; Setup packages
 (require 'setup-package)
 
+;(unless (version< emacs-version "24.4")
 ;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
-   '(magit
-     wgrep
+   '(wgrep
      hydra
      paredit
      move-text
-     gist
      htmlize
      visual-regexp
      markdown-mode
      fill-column-indicator
      flycheck
      flycheck-pos-tip
-     flycheck-clojure
      flx
      f
      flx-ido
      dired-details
      css-eldoc
      yasnippet
-     smartparens
      ido-vertical-mode
      ido-at-point
      simple-httpd
@@ -98,14 +95,10 @@
      whitespace-cleanup-mode
      elisp-slime-nav
      dockerfile-mode
-     clojure-mode
-     clojure-mode-extra-font-locking
      groovy-mode
      prodigy
-     cider
-     yesql-ghosts
      string-edit
-     beginend
+;     beginend
      )))
 
 (condition-case nil
@@ -125,7 +118,6 @@
 (setq guide-key/popup-window-position 'bottom)
 
 ;; Setup extensions
-
 (eval-after-load 'ido '(require 'setup-ido))
 (eval-after-load 'org '(require 'setup-org))
 (eval-after-load 'dired '(require 'setup-dired))
@@ -145,6 +137,7 @@
 ;; Font lock dash.el
 (eval-after-load "dash" '(dash-enable-font-lock))
 
+(unless (version< emacs-version "24.4")
 ;; Default setup of smartparens
 (require 'smartparens-config)
 (setq sp-autoescape-string-quote nil)
@@ -157,7 +150,7 @@
           groovy-mode
           scala-mode)
   (add-hook it 'turn-on-smartparens-mode))
-
+)
 ;; Language specific setup files
 (eval-after-load 'markdown-mode '(require 'setup-markdown-mode))
 
@@ -170,10 +163,12 @@
 ;; Map files to modes
 (require 'mode-mappings)
 
+(unless (version< emacs-version "24.4")
 ;; Visual regexp
 (require 'visual-regexp)
 (define-key global-map (kbd "M-&") 'vr/query-replace)
 (define-key global-map (kbd "M-/") 'vr/replace)
+)
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
