@@ -58,6 +58,10 @@
 (ido-at-point-mode)
 
 ;; Use ido everywhere
+(defvar ido-cur-item nil)
+(defvar ido-require-match nil)
+(defvar ido-cur-list nil)
+(defvar ido-default-item nil)
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
 

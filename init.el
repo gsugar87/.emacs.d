@@ -82,21 +82,21 @@
      flx
      f
      flx-ido
-     dired-details
-     css-eldoc
-     yasnippet
+;     dired-details
+;     css-eldoc
+;     yasnippet
      ido-vertical-mode
      ido-at-point
      simple-httpd
      guide-key
-     nodejs-repl
-     restclient
+;     nodejs-repl
+;     restclient
      highlight-escape-sequences
      whitespace-cleanup-mode
      elisp-slime-nav
-     dockerfile-mode
+;     dockerfile-mode
      groovy-mode
-     prodigy
+;     prodigy
      string-edit
 ;     beginend
      )))
@@ -120,39 +120,39 @@
 ;; Setup extensions
 (eval-after-load 'ido '(require 'setup-ido))
 (eval-after-load 'org '(require 'setup-org))
-(eval-after-load 'dired '(require 'setup-dired))
+;(eval-after-load 'dired '(require 'setup-dired))
 (eval-after-load 'shell '(require 'setup-shell))
 (require 'setup-rgrep)
 (require 'setup-hippie)
-(require 'setup-perspective)
+;(require 'setup-perspective)
 (require 'setup-ffip)
 (require 'setup-html-mode)
-(unless (version< emacs-version "24.4")
-  (eval-after-load 'magit '(require 'setup-magit))
-  (beginend-global-mode))
+;(unless (version< emacs-version "24.4")
+;  (eval-after-load 'magit '(require 'setup-magit))
+;  (beginend-global-mode))
 
-(require 'prodigy)
-(global-set-key (kbd "C-x M-m") 'prodigy)
+;(require 'prodigy)
+;(global-set-key (kbd "C-x M-m") 'prodigy)
 
-;; Font lock dash.el
+; Font lock dash.el
 (eval-after-load "dash" '(dash-enable-font-lock))
 
-(unless (version< emacs-version "24.4")
+;(unless (version< emacs-version "24.4")
 ;; Default setup of smartparens
-(require 'smartparens-config)
-(setq sp-autoescape-string-quote nil)
-(--each '(css-mode-hook
-          restclient-mode-hook
-          js-mode-hook
-          java-mode
-          ruby-mode
-          markdown-mode
-          groovy-mode
-          scala-mode)
-  (add-hook it 'turn-on-smartparens-mode))
-)
+;(require 'smartparens-config)
+;(setq sp-autoescape-string-quote nil)
+;(--each '(css-mode-hook
+;          restclient-mode-hook
+;          js-mode-hook
+;          java-mode
+;          ruby-mode
+;          markdown-mode
+;          groovy-mode
+;          scala-mode)
+;  (add-hook it 'turn-on-smartparens-mode))
+;)
 ;; Language specific setup files
-(eval-after-load 'markdown-mode '(require 'setup-markdown-mode))
+;(eval-after-load 'markdown-mode '(require 'setup-markdown-mode))
 
 ;; Load stuff on demand
 (autoload 'skewer-start "setup-skewer" nil t)
@@ -177,13 +177,13 @@
     (load file)))
 
 (require 'expand-region)
-(require 'multiple-cursors)
+;(require 'multiple-cursors)
 (require 'delsel)
 (require 'jump-char)
 (require 'eproject)
 (require 'smart-forward)
 (require 'change-inner)
-(require 'multifiles)
+;(require 'multifiles)
 
 ;; Don't use expand-region fast keys
 (setq expand-region-fast-keys-enabled nil)
@@ -199,7 +199,7 @@
 (require 'browse-kill-ring)
 (setq browse-kill-ring-quit-action 'save-and-restore)
 
-;; Smart M-x is smart
+; Smart M-x is smart
 (require 'smex)
 (smex-initialize)
 
