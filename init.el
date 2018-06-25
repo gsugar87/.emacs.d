@@ -76,7 +76,7 @@
      htmlize
      visual-regexp
      markdown-mode
-     fill-column-indicator
+;     fill-column-indicator
      flycheck
      flycheck-pos-tip
      flx
@@ -192,8 +192,8 @@
 (setq er--show-expansion-message t)
 
 ;; Fill column indicator
-(require 'fill-column-indicator)
-(setq fci-rule-color "#111122")
+;(require 'fill-column-indicator)
+;(setq fci-rule-color "#111122")
 
 ;; Browse kill ring
 (require 'browse-kill-ring)
