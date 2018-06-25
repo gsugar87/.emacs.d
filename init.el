@@ -367,3 +367,25 @@ Recognized window header names are: 'comint, 'locals, 'registers,
           ("s" . stack)
           ("b" . breakpoints)
           ("t" . threads)))
+
+(defun my-ido-find-tag ()
+  "Find a tag using ido"
+  (interactive)
+  (tags-completion-table)
+  (let* ((initial-input
+          (funcall (or find-tag-default-function
+                       (get major-mode 'find-tag-default-function)
+                       'find-tag-default)))
+         (initial-input-regex (concat "\\(^\\|::\\)" initial-input "$")))
+    (find-tag (ido-completing-read
+               "Tag: "
+               (sort
+                (remove nil
+                        (mapcar (lambda (tag) (unless (integerp tag)
+                                                (prin1-to-string tag 'noescape)))
+                                tags-completion-table))
+                ;; put those matching initial-input first:
+                (lambda (a b) (string-match initial-input-regex a)))
+               nil
+               'require-match
+               initial-input))))
