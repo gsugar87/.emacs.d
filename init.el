@@ -367,3 +367,10 @@ Recognized window header names are: 'comint, 'locals, 'registers,
           ("s" . stack)
           ("b" . breakpoints)
           ("t" . threads)))
+
+;; GTAGS stuff
+;(setq load-path (cons "/usr/bin/global" load-path))
+;(setq load-path (cons "/usr/bin/gtags" load-path))
+;(setq load-path (cons "settings" load-path))
+;(autoload 'gtags-mode "gtags" "" t)
+
