@@ -395,3 +395,7 @@ Recognized window header names are: 'comint, 'locals, 'registers,
                nil
                'require-match
                initial-input))))
+
+(eval-after-load 'shell
+  '(define-key shell-mode-map (kbd "M-?") 'ignore))
+
