@@ -11,7 +11,7 @@
  '(ido-use-filename-at-point nil)
  '(package-selected-packages
    (quote
-    (magit string-edit groovy-mode elisp-slime-nav whitespace-cleanup-mode highlight-escape-sequences guide-key simple-httpd ido-at-point ido-vertical-mode dired-details flx-ido f flx flycheck-pos-tip flycheck fill-column-indicator markdown-mode visual-regexp htmlize move-text paredit hydra wgrep)))
+    (magithub magit string-edit groovy-mode elisp-slime-nav whitespace-cleanup-mode highlight-escape-sequences guide-key simple-httpd ido-at-point ido-vertical-mode dired-details flx-ido f flx flycheck-pos-tip flycheck fill-column-indicator markdown-mode visual-regexp htmlize move-text paredit hydra wgrep)))
  '(safe-local-variable-values
    (quote
     ((eval font-lock-add-keywords nil
@@ -54,3 +54,12 @@
  '(js2-warning-face ((t nil)) t)
  '(minibuffer-prompt ((t (:foreground "color-41"))))
  '(persp-selected-face ((t (:foreground "color-38" :weight bold)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "color-233" :foreground "color-251" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "defaul;t" :family "default"))))
+ '(font-lock-comment-face ((t (:foreground "color-245"))))
+ '(font-lock-keyword-face ((t (:foreground "color-72"))))
+ '(minibuffer-prompt ((t (:foreground "color-41")))))

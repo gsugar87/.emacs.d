@@ -34,8 +34,8 @@
 
 (defun my/setup-ido ()
   ;; Go straight home
-  (define-key ido-file-completion-map (kbd "~") 'my/ido-go-straight-home)
-  (define-key ido-file-completion-map (kbd "C-~") 'my/ido-go-straight-home)
+  ;(define-key ido-file-completion-map (kbd "~") 'my/ido-go-straight-home)
+  ;(define-key ido-file-completion-map (kbd "C-~") 'my/ido-go-straight-home)
 
   ;; Use C-w to go back up a dir to better match normal usage of C-w
   ;; - insert current file name with C-x C-w instead.

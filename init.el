@@ -2,6 +2,10 @@
 ;;; uncomment this line to disable loading of "default.el" at startup
 ;(setq inhibit-default-init t)
 
+;; PuTTY fix
+(define-key global-map "\M-[1~" 'beginning-of-line)
+(define-key global-map [select] 'end-of-line)
+
 (require 'package)
 (add-to-list 'package-archives
 	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
@@ -71,14 +75,14 @@
   (packages-install
    '(wgrep
      hydra
-     paredit
+;     paredit
      move-text
      htmlize
      visual-regexp
      markdown-mode
 ;     fill-column-indicator
-     flycheck
-     flycheck-pos-tip
+;     flycheck
+;     flycheck-pos-tip
      flx
      f
      flx-ido
@@ -118,6 +122,7 @@
 (setq guide-key/popup-window-position 'bottom)
 
 ;; Setup extensions
+(message "ido stuff")
 (eval-after-load 'ido '(require 'setup-ido))
 (eval-after-load 'org '(require 'setup-org))
 ;(eval-after-load 'dired '(require 'setup-dired))
@@ -155,10 +160,10 @@
 ;(eval-after-load 'markdown-mode '(require 'setup-markdown-mode))
 
 ;; Load stuff on demand
-(autoload 'skewer-start "setup-skewer" nil t)
-(autoload 'skewer-demo "setup-skewer" nil t)
-(autoload 'auto-complete-mode "auto-complete" nil t)
-(eval-after-load 'flycheck '(require 'setup-flycheck))
+;(autoload 'skewer-start "setup-skewer" nil t)
+;(autoload 'skewer-demo "setup-skewer" nil t)
+;(autoload 'auto-complete-mode "auto-complete" nil t)
+;(eval-after-load 'flycheck '(require 'setup-flycheck))
 
 ;; Map files to modes
 (require 'mode-mappings)
@@ -179,10 +184,10 @@
 (require 'expand-region)
 ;(require 'multiple-cursors)
 (require 'delsel)
-(require 'jump-char)
-(require 'eproject)
-(require 'smart-forward)
-(require 'change-inner)
+;(require 'jump-char)
+;(require 'eproject)
+;(require 'smart-forward)
+;(require 'change-inner)
 ;(require 'multifiles)
 
 ;; Don't use expand-region fast keys
@@ -199,13 +204,18 @@
 (require 'browse-kill-ring)
 (setq browse-kill-ring-quit-action 'save-and-restore)
 
+(message "loading smex")
+
 ; Smart M-x is smart
-(require 'smex)
-(smex-initialize)
+;(require 'smex)
+;(smex-initialize)
 
 ;; Elisp go-to-definition with M-. and back again with M-,
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav")
 (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t) (eldoc-mode 1)))
+
+
+(message "dealing with server")
 
 ;; Emacs server
 (require 'server)
@@ -213,6 +223,7 @@
   (server-start))
 
 ;; Run at full power please
+(message "run at full power")
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
@@ -223,6 +234,7 @@
   (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
 
 
+(message "eshell stuff")
 (require 'eshell)
 (require 'em-smart)
 (setq eshell-where-to-jump 'begin)
@@ -239,6 +251,7 @@
 	  '(lambda () (define-key eshell-mode-map [home] 'eshell-maybe-bol)))
 
 
+(message "global font lock")
 ;; turn on font-lock mode
 (when (fboundp 'global-font-lock-mode)
   (global-font-lock-mode t))
@@ -256,6 +269,7 @@
 ;; always end a file with a newline
 ;(setq require-final-newline 'query)
 
+(message "custom set variables")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -277,6 +291,8 @@
  ;'(link ((t (:foreground "color-39" :underline t))))
  '(minibuffer-prompt ((t (:foreground "color-41")))))
 
+
+(message "auto mode alist")
 (setq auto-mode-alist
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 (add-hook 'octave-mode-hook
@@ -298,15 +314,13 @@
 (add-hook 'octave-mode-hook 'RET-behaves-as-LFD)
 (autoload 'run-octave "octave-inf" nil t)
 
-;; PuTTY fix
-(define-key global-map "\M-[1~" 'beginning-of-line)
-(define-key global-map [select] 'end-of-line)
-
 ;; Make the shell open in the same window
 (add-to-list 'display-buffer-alist
              `(,(regexp-quote "*shell") display-buffer-same-window))
 (require 'cl)
 
+
+(message "gdb stuff")
 ;; For the consistency of gdb-select-window's calling convention...
 (defun gdb-comint-buffer-name ()
   (buffer-name gud-comint-buffer))
@@ -399,3 +413,5 @@ Recognized window header names are: 'comint, 'locals, 'registers,
 (eval-after-load 'shell
   '(define-key shell-mode-map (kbd "M-?") 'ignore))
 
+(ido-mode 0)
+(ido-mode 1)
